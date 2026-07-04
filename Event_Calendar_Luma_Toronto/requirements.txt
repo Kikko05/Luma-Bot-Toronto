@@ -1,0 +1,7 @@
+python-telegram-bot[job-queue]==21.6
+requests==2.32.5
+flask>=3.0
+python-dotenv==1.0.1
+Pillow>=10.0        # optional: enables Watch Events image downscaling (degrades gracefully if absent)
+sentence-transformers>=3.0  # semantic event categorisation (all-MiniLM-L6-v2, ~80 MB download on first run)
+numpy>=1.26         # cosine similarity for category embeddings

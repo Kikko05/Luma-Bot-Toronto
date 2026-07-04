@@ -1,0 +1,492 @@
+{
+  "seen": [
+    "f8bea84f47f14d22",
+    "de2f0ddf6835f45f",
+    "76d9ac552fc280d4",
+    "1616cfb4020c7d2e",
+    "6dfa28fa903af099",
+    "92b8b985c8114b51",
+    "36e1f70db77a1423",
+    "a356b56c6627518e",
+    "ba5232d9accf4911",
+    "3e34c1d8d462f448",
+    "4d2ca63878734805",
+    "dd7a174626545b66",
+    "f74cec6c844028c6",
+    "4e1335649c28e789",
+    "3fbaf1878d502fdc",
+    "fc22abdf9079c6ae",
+    "181c596c02f1bdb8",
+    "32ca28ee2a41953d",
+    "a7442bf9c9351f9d",
+    "a92040de3741aee6",
+    "134db6ad5a067531",
+    "8c5353c7b9951c4e",
+    "c94a32e67c1e9349",
+    "8120d08563a937ef",
+    "be14d9a11f80607c",
+    "b558e5a4f3508f50",
+    "e9c633fef8151ec1",
+    "3a35f358e7376fad",
+    "4c265a067e59df35",
+    "f528f42642da20f3",
+    "f20fa0429c5e34e0",
+    "a8ff6cc059bde2e6",
+    "b25459d8347ac640",
+    "0bf9bb2b61bc1cbd",
+    "78207600d6a96e3b",
+    "c48404d2f67c8404",
+    "c920a442db9e607b",
+    "f0195fa62f5aca5b",
+    "ba919e0712068a95",
+    "15788a98a61148d9",
+    "54575410c915f662",
+    "5fe150e297610d1f"
+  ],
+  "accepted": [
+    "333390a1c79b7167",
+    "333390a1c79b7167",
+    "8e80965469454853",
+    "51892315587a6d4f",
+    "bff842f2a198d470",
+    "1b98da67b18e0e59",
+    "8badcebc995a053c",
+    "bff842f2a198d470",
+    "8badcebc995a053c",
+    "e3e269d3d26db412",
+    "e3e269d3d26db412",
+    "bfedb957a56cee7e",
+    "238170b2f80f0d91",
+    "238170b2f80f0d91",
+    "238170b2f80f0d91",
+    "2fa1cba0e93a3fda",
+    "013b9fdf50a4e98b",
+    "2fa1cba0e93a3fda",
+    "238170b2f80f0d91"
+  ],
+  "rejected": [],
+  "events": {
+    "f8bea84f47f14d22": {
+      "title": "HRC Monthly: The Walking Series",
+      "start_at": "2026-07-04T12:00:00.000Z",
+      "end_at": "2026-07-04T14:00:00.000Z",
+      "location": "10 Ashbridges Bay Park Rd, Toronto, ON M4L 3W6, Canada",
+      "url": "https://luma.com/cgiilmgv",
+      "image_url": "https://images.lumacdn.com/event-covers/gy/71651091-a129-4e7e-b0af-f7f8e6d4a1f3.jpg",
+      "category": "Wellness & Fitness"
+    },
+    "1616cfb4020c7d2e": {
+      "title": "APIs & IPAs Touches Grass July",
+      "start_at": "2026-07-04T17:00:00.000Z",
+      "end_at": "2026-07-04T19:00:00.000Z",
+      "location": "Trinity Bellwoods Park, 790 Queen St W, Toronto, ON M6J 1G3, Canada",
+      "url": "https://luma.com/39assteq",
+      "image_url": "https://images.lumacdn.com/event-covers/0b/e35d70b2-5088-4b0e-86ff-a1f26b3e29c5.png",
+      "category": "AI & Tech"
+    },
+    "92b8b985c8114b51": {
+      "title": "Together Toronto",
+      "start_at": "2026-07-06T22:00:00.000Z",
+      "end_at": "2026-07-07T01:00:00.000Z",
+      "location": "U of T: Schwartz Reisman Innovation Campus, 108 College St, Toronto, ON M5G 0C6, Canada",
+      "url": "https://luma.com/together-toronto-jul-6-2026",
+      "image_url": "https://images.lumacdn.com/uploads/wd/b5fab48c-b056-4eea-9597-f2390bf21e88.png",
+      "category": "Social & Community"
+    },
+    "36e1f70db77a1423": {
+      "title": "Table For Two Book Launch",
+      "start_at": "2026-07-06T22:30:00.000Z",
+      "end_at": "2026-07-07T01:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/e46hbemo",
+      "image_url": "https://images.lumacdn.com/uploads/nq/5e40caa8-0f30-40f4-a499-25935e86d5b6.jpg",
+      "category": "Founders & Startups"
+    },
+    "a356b56c6627518e": {
+      "title": "The Trampoline Hall Lecture Series",
+      "start_at": "2026-07-06T23:00:00.000Z",
+      "end_at": "2026-07-07T02:00:00.000Z",
+      "location": "The Garrison, 1197 Dundas St W, Toronto, ON M6J 1X3, Canada",
+      "url": "https://luma.com/qfhr8zvo",
+      "image_url": "https://images.lumacdn.com/uploads/7a/1cfd29f6-c80e-4240-8ffd-3f5164184f4f.jpg",
+      "category": "Workshops & Classes"
+    },
+    "ba5232d9accf4911": {
+      "title": "Lovable Meetup Toronto (July) w/ The Viral AI & Rootly AI",
+      "start_at": "2026-07-07T21:30:00.000Z",
+      "end_at": "2026-07-08T00:30:00.000Z",
+      "location": "",
+      "url": "https://luma.com/lovabletoronto",
+      "image_url": "https://images.lumacdn.com/uploads/2r/43d2ab8e-528b-4d64-91bf-7baf6afd8a36.png",
+      "category": "AI & Tech"
+    },
+    "f74cec6c844028c6": {
+      "title": "Reading Rhythms Toronto Chapter - Reading in the Park Party (Free!)",
+      "start_at": "2026-07-08T22:30:00.000Z",
+      "end_at": "2026-07-09T00:00:00.000Z",
+      "location": "Toronto Music Garden, 479 Queens Quay W, Toronto, ON M5V 3M8, Canada",
+      "url": "https://luma.com/reading-eal0",
+      "image_url": "https://images.lumacdn.com/api-uploads/zm/af990f8b-9720-4797-b404-34aa4827b3ca.jpg",
+      "category": "Arts & Culture"
+    },
+    "4e1335649c28e789": {
+      "title": "Hoopbase Open",
+      "start_at": "2026-07-09T22:00:00.000Z",
+      "end_at": "2026-07-10T00:00:00.000Z",
+      "location": "University of Toronto Schools, 371 Bloor St W, Toronto, ON M5S 2R7, Canada",
+      "url": "https://luma.com/chatbase-2c4z",
+      "image_url": "https://images.lumacdn.com/uploads/0h/c0cd851d-569c-4b04-86ed-16a363717818.png",
+      "category": "Gaming & Nightlife"
+    },
+    "3fbaf1878d502fdc": {
+      "title": "STRONG On The Water",
+      "start_at": "2026-07-11T15:00:00.000Z",
+      "end_at": "2026-07-11T18:30:00.000Z",
+      "location": "Queen\u2019s Quay Terminal, 207 Queens Quay W Suite 141, Toronto, ON M5J 1A7, Canada",
+      "url": "https://luma.com/og2q4rlf",
+      "image_url": "https://images.lumacdn.com/uploads/n7/bee6d787-cdb4-47fa-997c-709914563457.png",
+      "category": "Wellness & Fitness"
+    },
+    "fc22abdf9079c6ae": {
+      "title": "IMPACT",
+      "start_at": "2026-07-11T16:00:00.000Z",
+      "end_at": "2026-07-11T18:00:00.000Z",
+      "location": "The Hangar, 75 Carl Hall Rd #1001A, North York, ON M3K 2B9, Canada",
+      "url": "https://luma.com/4otjhl0i",
+      "image_url": "https://images.lumacdn.com/event-covers/1a/8526ffb0-0a66-4687-ab72-017909e3dd5e.png",
+      "category": "Talks & Panels"
+    },
+    "a7442bf9c9351f9d": {
+      "title": "Read Among Reeds #1",
+      "start_at": "2026-07-12T15:00:00.000Z",
+      "end_at": "2026-07-12T18:00:00.000Z",
+      "location": "Trinity Bellwoods Park, 790 Queen St W, Toronto, ON M6J 1G3, Canada",
+      "url": "https://luma.com/firgre12",
+      "image_url": "https://images.lumacdn.com/uploads/lu/e5710995-492e-4932-8635-2c33f0125fb5.png",
+      "category": "Workshops & Classes"
+    },
+    "a92040de3741aee6": {
+      "title": "Have We Tried Being Nice to Bugs? Breakpoint Live: Toronto with Sentry & Clerk",
+      "start_at": "2026-07-14T23:00:00.000Z",
+      "end_at": "2026-07-15T02:00:00.000Z",
+      "location": "Bellwoods Brewery, 124 Ossington Ave, Toronto, ON M6J 2Z5, Canada",
+      "url": "https://luma.com/be-nice-to-bugs-day-toronto",
+      "image_url": "https://images.lumacdn.com/uploads/pi/fcc4ad83-7744-433b-be86-9e53db223030.png",
+      "category": "AI & Tech"
+    },
+    "134db6ad5a067531": {
+      "title": "REUNION Dance Party: Open Air Rooftop Party (Women-Only & Alcohol-Free) *EDM Golden Era Themed*",
+      "start_at": "2026-07-15T22:30:00.000Z",
+      "end_at": "2026-07-16T02:00:00.000Z",
+      "location": "Aera, 8 Spadina Ave. #3800, Toronto, ON M5V 0S8, Canada",
+      "url": "https://luma.com/m6fiu9ag",
+      "image_url": "https://images.lumacdn.com/uploads/7z/4fe32590-1fab-4c29-8f84-21abc51916ad.png",
+      "category": "Gaming & Nightlife"
+    },
+    "c94a32e67c1e9349": {
+      "title": "First DET Toronto Meetup",
+      "start_at": "2026-07-16T21:00:00.000Z",
+      "end_at": "2026-07-17T00:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/r77rtu0u",
+      "image_url": "https://images.lumacdn.com/uploads/zu/ca0ef9ba-8f69-420d-a198-5e283b2a23cd.png",
+      "category": "Social & Community"
+    },
+    "8120d08563a937ef": {
+      "title": "Superhuman Build Night",
+      "start_at": "2026-07-16T21:30:00.000Z",
+      "end_at": "2026-07-17T00:00:00.000Z",
+      "location": "StartWell - Main Campus, 786 King St W, Toronto, ON M5V 1N6, Canada",
+      "url": "https://luma.com/wybt9hlc",
+      "image_url": "https://images.lumacdn.com/uploads/hz/6769a6e8-28dd-4177-8abc-06e90ed539fe.png",
+      "category": "Gaming & Nightlife"
+    },
+    "3a35f358e7376fad": {
+      "title": "The (formerly Editions, now DotDev) Agency Brunch",
+      "start_at": "2026-07-20T13:00:00.000Z",
+      "end_at": "2026-07-20T16:30:00.000Z",
+      "location": "Ace Hotel Toronto, 51 Camden St, Toronto, ON M5V 1V2, Canada",
+      "url": "https://luma.com/pqfakgxw",
+      "image_url": "https://images.lumacdn.com/uploads/y5/6339fe3c-b646-40d8-8171-6639962c427e.png",
+      "category": "Founders & Startups"
+    },
+    "c48404d2f67c8404": {
+      "title": "RevFest Toronto 2026 \u2014 Toronto's Newest & Largest Creator Led Car & Motorcycle Festival",
+      "start_at": "2026-08-29T19:00:00.000Z",
+      "end_at": "2026-08-30T02:00:00.000Z",
+      "location": "Markham Fairgrounds, 10801 McCowan Rd, Markham, ON L3P 3J3, Canada",
+      "url": "https://luma.com/RevFestToronto",
+      "image_url": "https://images.lumacdn.com/uploads/tw/7ca0c19f-57de-4780-a520-d37b9692093c.png",
+      "category": "Arts & Culture"
+    },
+    "c920a442db9e607b": {
+      "title": "Solana Summit Canada",
+      "start_at": "2026-09-23T13:30:00.000Z",
+      "end_at": "2026-09-24T22:00:00.000Z",
+      "location": "Toronto, ON, Canada",
+      "url": "https://luma.com/Solana-Summit-Canada",
+      "image_url": "https://images.lumacdn.com/uploads/6b/85543646-01fd-45e5-9c39-841228d6ac64.gif",
+      "category": "Wellness & Fitness"
+    },
+    "181c596c02f1bdb8": {
+      "title": "Floorplay: Sunset Strip (Open Air Festival)",
+      "start_at": "2026-07-11T18:00:00.000Z",
+      "end_at": "2026-07-12T02:00:00.000Z",
+      "location": "Motorista Studio, 25 Commercial Rd Unit 9, East York, ON M4G 1Z3, Canada",
+      "url": "https://luma.com/fp-sunset-strip",
+      "image_url": "https://images.lumacdn.com/uploads/mn/95f935b7-6d1a-4e01-b12b-adf0f71d1394.png",
+      "category": "Arts & Culture"
+    },
+    "8c5353c7b9951c4e": {
+      "title": "GitHub Copilot Dev Days - Toronto - #2",
+      "start_at": "2026-07-16T17:30:00.000Z",
+      "end_at": "2026-07-16T20:30:00.000Z",
+      "location": "Microsoft Canada, Dominion Centre, 222 Bay St. #1201, Toronto, ON M5K 1E7, Canada",
+      "url": "https://luma.com/oflkv7xb",
+      "image_url": "https://images.lumacdn.com/event-covers/vi/df6aa2a7-3241-40b1-ad68-531e2b7f98f9.png",
+      "category": "AI & Tech"
+    },
+    "6dfa28fa903af099": {
+      "title": "BUBBLEPALOOZA",
+      "start_at": "2026-07-04T17:00:00.000Z",
+      "end_at": "2026-07-04T19:30:00.000Z",
+      "location": "Stanley Park, 700 Wellington St W, Toronto, ON M5V 1G7, Canada",
+      "url": "https://luma.com/7lboq090",
+      "image_url": "https://images.lumacdn.com/uploads/c3/792ab8a8-0bd1-43ca-8a55-c1ae1b2f37e5.png",
+      "category": "Gaming & Nightlife"
+    },
+    "3e34c1d8d462f448": {
+      "title": "Should we fear an AI future?",
+      "start_at": "2026-07-07T22:00:00.000Z",
+      "end_at": "2026-07-08T01:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/fiukg3sv",
+      "image_url": "https://images.lumacdn.com/uploads/11/4ed8028c-2ed1-4aa1-b1a3-17897863129e.png",
+      "category": "AI & Tech"
+    },
+    "4d2ca63878734805": {
+      "title": "Toronto Women in Tech Meetup: Crafts in the Park",
+      "start_at": "2026-07-08T21:30:00.000Z",
+      "end_at": "2026-07-08T22:30:00.000Z",
+      "location": "",
+      "url": "https://luma.com/sjlagn3e",
+      "image_url": "https://images.lumacdn.com/uploads/3y/3e327e3b-20a3-44c3-9251-976a0b1d1969.png",
+      "category": "Social & Community"
+    },
+    "32ca28ee2a41953d": {
+      "title": "Mehfil Society: Summer Soir\u00e9e",
+      "start_at": "2026-07-11T22:00:00.000Z",
+      "end_at": "2026-07-12T04:00:00.000Z",
+      "location": "Zawadi Farm, 160 Downsview Park Blvd, North York, ON M4K 2B8, Canada",
+      "url": "https://luma.com/mehfilsocietysummersoiree",
+      "image_url": "https://images.lumacdn.com/uploads/0w/578adda8-a37d-454e-893b-72e4a9914284.jpg",
+      "category": "Gaming & Nightlife"
+    },
+    "4c265a067e59df35": {
+      "title": "Pickle Dot Dev",
+      "start_at": "2026-07-20T20:00:00.000Z",
+      "end_at": "2026-07-20T22:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/gmrxbxgh",
+      "image_url": "https://images.lumacdn.com/uploads/mi/557cf7a5-f8d5-432c-895f-39133bbb4e4c.png",
+      "category": "AI & Tech"
+    },
+    "f528f42642da20f3": {
+      "title": "2026 Toronto Robotics Conference",
+      "start_at": "2026-07-21T13:00:00.000Z",
+      "end_at": "2026-07-22T20:00:00.000Z",
+      "location": "University of Toronto Mississauga, 3359 Mississauga Rd, Mississauga, ON L5L 1C6, Canada",
+      "url": "https://luma.com/i728w9my",
+      "image_url": "https://images.lumacdn.com/uploads/wr/a906a266-067b-4919-a801-34bde37a69a6.png",
+      "category": "AI & Tech"
+    },
+    "a8ff6cc059bde2e6": {
+      "title": "Cursor for PMs Toronto - July",
+      "start_at": "2026-07-22T21:30:00.000Z",
+      "end_at": "2026-07-23T00:30:00.000Z",
+      "location": "",
+      "url": "https://luma.com/hlx6e9er",
+      "image_url": "https://images.lumacdn.com/event-covers/eh/384447a2-e5f8-41a5-870a-526a121d912b.jpg",
+      "category": "AI & Tech"
+    },
+    "78207600d6a96e3b": {
+      "title": "Brightwork Vol. 01",
+      "start_at": "2026-07-23T14:00:00.000Z",
+      "end_at": "2026-07-23T22:00:00.000Z",
+      "location": "EAST ROOM, 507 King St E, Toronto, ON M5A 1M3, Canada",
+      "url": "https://luma.com/brightwork-2026",
+      "image_url": "https://images.lumacdn.com/uploads/az/a92ee060-1104-4253-abc6-22a2a94d9292.jpg",
+      "category": "AI & Tech"
+    },
+    "dd7a174626545b66": {
+      "title": "Build Night TO by TechTank x PostHog",
+      "start_at": "2026-07-08T22:00:00.000Z",
+      "end_at": "2026-07-09T01:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/7mgyw1r2",
+      "image_url": "https://images.lumacdn.com/uploads/zh/72952b9f-3f56-4b9f-8384-8e5796e9da9a.png",
+      "category": "Gaming & Nightlife"
+    },
+    "be14d9a11f80607c": {
+      "title": "Women Who Build: An Evening with Miraelle",
+      "start_at": "2026-07-16T22:00:00.000Z",
+      "end_at": "2026-07-17T00:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/h7xno9bu",
+      "image_url": "https://images.lumacdn.com/uploads/oj/23dcaba7-6e68-4f9d-94e7-ca2cea8d6ad3.png",
+      "category": "Arts & Culture"
+    },
+    "b558e5a4f3508f50": {
+      "title": "Toronto Caf\u00e9 Walk [Little Italy Edition] \u2615",
+      "start_at": "2026-07-17T14:30:00.000Z",
+      "end_at": "2026-07-17T16:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/kaorzqpg",
+      "image_url": "https://images.lumacdn.com/uploads/t3/3904013b-b535-4b51-9571-153323020ee2.png",
+      "category": "Social & Community"
+    },
+    "f20fa0429c5e34e0": {
+      "title": "Intelligems Lounge @ DotDev",
+      "start_at": "2026-07-22T13:00:00.000Z",
+      "end_at": "2026-07-22T19:00:00.000Z",
+      "location": "Arvo Coffee & Wine, 80 Atlantic Ave, Toronto, ON M6K 1X9, Canada",
+      "url": "https://luma.com/6zuovemi",
+      "image_url": "https://images.lumacdn.com/uploads/wi/9f1bbeb4-4e1a-4dfa-850b-2be10297ac74.png",
+      "category": "AI & Tech"
+    },
+    "de2f0ddf6835f45f": {
+      "title": "How to build a personal brand with intention & impact? | Pillars Network x ISNA Canada",
+      "start_at": "2026-07-04T15:00:00.000Z",
+      "end_at": "2026-07-04T17:30:00.000Z",
+      "location": "",
+      "url": "https://luma.com/qdbafeld",
+      "image_url": "https://images.lumacdn.com/uploads/rm/4e38914f-0755-4246-a519-22450509cb55.png",
+      "category": "Founders & Startups"
+    },
+    "76d9ac552fc280d4": {
+      "title": "Pull Up a Chair (Junction Farmers' Market) - July 4th, 12:15pm",
+      "start_at": "2026-07-04T16:15:00.000Z",
+      "end_at": "2026-07-04T17:00:00.000Z",
+      "location": "The Junction Farmers Market, Baird Park, 275 Keele St, Toronto, ON M6P 2K5, Canada",
+      "url": "https://luma.com/yu8omvkf",
+      "image_url": "https://images.lumacdn.com/uploads/jm/d66cb89f-45e4-4e5c-a78e-5aaaccca58e2.png",
+      "category": "Food & Drink"
+    },
+    "e9c633fef8151ec1": {
+      "title": "Photo Walks: Lumen Printing with Julie Pasila",
+      "start_at": "2026-07-18T17:00:00.000Z",
+      "end_at": "2026-07-18T20:00:00.000Z",
+      "location": "Biidaasige Park, 51 Commissioners St, Toronto, ON M5A 1A6, Canada",
+      "url": "https://luma.com/tb12wilt",
+      "image_url": "https://images.lumacdn.com/uploads/ks/dbd93840-d39b-4e4c-b7b0-3a7e3a769a9e.jpg",
+      "category": "Arts & Culture"
+    },
+    "400b7292b64a6bbf": {
+      "title": "Ladies Who Lunch ... build & lead",
+      "start_at": "2026-07-20T16:30:00.000Z",
+      "end_at": "2026-07-20T19:30:00.000Z",
+      "location": "Soho House Toronto, Bishop's Building, 192 Adelaide St W, Toronto, ON M5H 0A4, Canada",
+      "url": "https://luma.com/7kv1wv7j",
+      "image_url": "https://images.lumacdn.com/uploads/cd/1c240e75-817d-47f9-8ba4-5bdaad504aa2.png",
+      "category": "Food & Drink"
+    },
+    "b25459d8347ac640": {
+      "title": "WaB Book Club: Mixer (for non-members)",
+      "start_at": "2026-07-22T22:30:00.000Z",
+      "end_at": "2026-07-23T00:30:00.000Z",
+      "location": "Coronation Park, 711 Lake Shore Blvd W, Toronto, ON M5V 1A7, Canada",
+      "url": "https://luma.com/gk9z9gpq",
+      "image_url": "https://images.lumacdn.com/uploads/2m/8a946776-f0e6-4673-90d0-11e22cdd38ae.png",
+      "category": "Social & Community"
+    },
+    "0bf9bb2b61bc1cbd": {
+      "title": "How to Save a Corner Store: A Neighborhood Retail Story",
+      "start_at": "2026-07-22T23:00:00.000Z",
+      "end_at": "2026-07-23T01:00:00.000Z",
+      "location": "Society Clubhouse, 967 College St, Toronto, ON M6H 1A6, Canada",
+      "url": "https://luma.com/e2ipcfkw",
+      "image_url": "https://images.lumacdn.com/uploads/d8/75a75a78-d1b0-40ad-81ec-fe8004346a38.png",
+      "category": "Social & Community"
+    },
+    "f0195fa62f5aca5b": {
+      "title": "444 Walk Club: 5th July",
+      "start_at": "2026-07-05T13:00:00.000Z",
+      "end_at": "2026-07-05T14:30:00.000Z",
+      "location": "The Hut Smoothie and Juice Bar, 2528 Yonge St, Toronto, ON M4P 2H7, Canada",
+      "url": "https://luma.com/1aizo79l",
+      "image_url": "https://images.lumacdn.com/uploads/9p/22b67048-147d-4f3a-b452-6c2e4f08a47a.jpg",
+      "category": "Gaming & Nightlife"
+    },
+    "ba919e0712068a95": {
+      "title": "World Cup Watch Party \ud83c\udde8\ud83c\udde6 - Toronto",
+      "start_at": "2026-07-04T16:30:00.000Z",
+      "end_at": "2026-07-04T20:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/superteam-c3xx",
+      "image_url": "https://images.lumacdn.com/uploads/jt/01303069-d7cc-468d-a490-fba68639809c.png",
+      "category": "Gaming & Nightlife"
+    },
+    "15788a98a61148d9": {
+      "title": "Toronto Caf\u00e9 Walk [Trinity Bellwoods Edition] \u2615",
+      "start_at": "2026-07-05T17:30:00.000Z",
+      "end_at": "2026-07-05T19:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/01h6da9i",
+      "image_url": "https://images.lumacdn.com/uploads/pa/f501b24e-d9c9-4246-b107-10818927ab50.png",
+      "category": "Social & Community"
+    },
+    "54575410c915f662": {
+      "title": "In My Sister's Closet",
+      "start_at": "2026-07-11T15:00:00.000Z",
+      "end_at": "2026-07-11T20:00:00.000Z",
+      "location": "",
+      "url": "https://luma.com/vxz1ci35",
+      "image_url": "https://images.lumacdn.com/uploads/m1/51e958ce-17c6-4903-bb43-7a892e1a8c22.png",
+      "category": "Gaming & Nightlife"
+    },
+    "5fe150e297610d1f": {
+      "title": "Bitcoin Devleoper Conference - btcplusplus *consensus edition* \ud83d\udcdc\u2728",
+      "start_at": "2026-07-22T15:00:00.000Z",
+      "end_at": "2026-07-24T21:30:00.000Z",
+      "location": "The Great Hall, 1087 Queen St W, Toronto, ON M6J 1H3, Canada",
+      "url": "https://luma.com/cne7j4i7",
+      "image_url": "https://images.lumacdn.com/event-covers/z3/cba9a78b-be95-4db8-b1ca-4617ab202d29.jpg",
+      "category": "AI & Tech"
+    }
+  },
+  "watch_seen": [],
+  "digest_hour": 8,
+  "morning_digest": true,
+  "preferred_categories": [
+    "AI & Tech",
+    "Founders & Startups",
+    "Workshops & Classes",
+    "Social & Community"
+  ],
+  "new_event_alerts": true,
+  "alert_seen": [
+    "1616cfb4020c7d2e",
+    "92b8b985c8114b51",
+    "36e1f70db77a1423",
+    "a356b56c6627518e",
+    "ba5232d9accf4911",
+    "3e34c1d8d462f448",
+    "4d2ca63878734805",
+    "a7442bf9c9351f9d",
+    "a92040de3741aee6",
+    "8c5353c7b9951c4e",
+    "c94a32e67c1e9349",
+    "3a35f358e7376fad",
+    "4c265a067e59df35",
+    "f528f42642da20f3",
+    "a8ff6cc059bde2e6",
+    "78207600d6a96e3b",
+    "b558e5a4f3508f50",
+    "f20fa0429c5e34e0",
+    "de2f0ddf6835f45f",
+    "b25459d8347ac640",
+    "0bf9bb2b61bc1cbd",
+    "15788a98a61148d9",
+    "5fe150e297610d1f"
+  ]
+}
