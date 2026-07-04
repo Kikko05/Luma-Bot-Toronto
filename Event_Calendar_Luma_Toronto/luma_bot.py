@@ -47,8 +47,14 @@ SEEN_DB_PATH       = Path(__file__).parent / "seen_events.json"
 # every photo (including ones that already finished) used to get thrown
 # away. Photos that finish before the deadline are now always kept; only
 # the ones still in flight when the deadline hits are dropped.
-IMAGE_PER_REQUEST_TIMEOUT_SECS = 6     # per-image connect+read timeout
-IMAGE_BATCH_DEADLINE_SECS      = 12    # wall-clock cap for the whole parallel batch
+IMAGE_PER_REQUEST_TIMEOUT_SECS = 10    # per-image connect+read timeout
+IMAGE_BATCH_DEADLINE_SECS      = 25    # wall-clock cap for the whole parallel batch
+# Bumped from 6s/12s: those were tuned against a home connection's latency to
+# Luma's CDN. A cloud host's egress path can be slower/more variable, and the
+# scraper-side event-loop-blocking bug (see scrape_luma_toronto) made timeouts
+# trip more than they should have on top of that -- extra headroom here so a
+# merely-slow-not-broken image still gets through even before that fix lands
+# everywhere it matters.
 MAX_IMAGE_BYTES                = 9_500_000  # stay under Telegram's 10 MB photo limit
 
 BROWSER_HEADERS = {
@@ -136,21 +142,39 @@ async def scrape_luma_toronto() -> list[dict]:
             params["pagination_cursor"] = cursor
 
         try:
-            resp = req.get(url, params=params, headers=BROWSER_HEADERS, timeout=15)
-            if resp.status_code != 200:
-                log.error("Toronto API returned %d on page %d", resp.status_code, page)
-                break
+            # req.get() + _normalize() (which can trigger a CPU-bound
+            # sentence-transformer embedding per event) are both synchronous/
+            # blocking. Run them in a worker thread rather than straight in
+            # this coroutine -- otherwise they freeze the bot's *entire*
+            # event loop for as long as they take, stalling every other
+            # coroutine, including the asyncio.wait() deadline check in
+            # _download_images_batch that governs sticker sends. This is
+            # the actual cause of the Railway-only missing/partial-sticker
+            # bug: a slower or higher-latency path to Luma's API (vs. a
+            # home connection) means this blocking window is longer there,
+            # so an in-flight sticker batch's timeout gets checked late and
+            # images that would've finished in time get cancelled instead.
+            def _fetch_and_normalize_page():
+                r = req.get(url, params=params, headers=BROWSER_HEADERS, timeout=15)
+                if r.status_code != 200:
+                    return r.status_code, None, [], []
+                d = r.json()
+                raw_items = d.get("entries") or d.get("events") or []
+                out = []
+                for item in raw_items:
+                    ev = item.get("event", item)
+                    if isinstance(ev, dict) and (ev.get("name") or ev.get("title")):
+                        out.append(_normalize(ev))
+                return 200, d, raw_items, out
 
-            data = resp.json()
-            raw  = data.get("entries") or data.get("events") or []
+            status, data, raw, normalized = await asyncio.to_thread(_fetch_and_normalize_page)
+            if status != 200:
+                log.error("Toronto API returned %d on page %d", status, page)
+                break
             if not raw:
                 break
 
-            for item in raw:
-                ev = item.get("event", item)
-                if isinstance(ev, dict) and (ev.get("name") or ev.get("title")):
-                    all_events.append(_normalize(ev))
-
+            all_events.extend(normalized)
             page  += 1
             cursor = data.get("next_cursor")
             log.info("Toronto API page %d: %d events (total: %d)", page, len(raw), len(all_events))
