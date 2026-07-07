@@ -926,24 +926,41 @@ def _download_image(url: str) -> bytes | None:
     send_media_group is all-or-nothing — one failed fetch fails the whole
     album. Downloading the bytes ourselves (real timeout + browser-like
     headers, pooled connections) and uploading them directly removes that
-    dependency and is also just faster."""
+    dependency and is also just faster.
+
+    Logging is deliberately verbose on failure (status code + a snippet of
+    the response body, or the specific exception type + elapsed time) --
+    on a cloud host we can't attach a debugger or watch it happen live, so
+    the Railway log line for a given failure has to be enough on its own to
+    tell a plain timeout apart from a CDN-side block/rate-limit (e.g. a 403
+    or 429, or an HTML challenge page coming back with a 200 and a
+    non-image content-type)."""
     if not url:
         return None
+    started = time.perf_counter()
     try:
         resp = _image_session.get(url, timeout=IMAGE_PER_REQUEST_TIMEOUT_SECS)
+        elapsed = _format_elapsed(started)
         if resp.status_code != 200:
-            log.warning("Image fetch returned %d for %s", resp.status_code, url)
+            log.warning("Image fetch returned %d for %s (after %s). Body snippet: %r",
+                        resp.status_code, url, elapsed, resp.text[:200])
             return None
         if not resp.headers.get("content-type", "").startswith("image/"):
-            log.warning("URL is not an image: %s", url)
+            log.warning("URL is not an image (content-type=%r) for %s (after %s). Body snippet: %r",
+                        resp.headers.get("content-type"), url, elapsed, resp.text[:200])
             return None
         data = _shrink_image(resp.content)  # resize/recompress before size check
         if len(data) > MAX_IMAGE_BYTES:
             log.warning("Image too large (%d bytes) even after shrinking, skipping: %s", len(data), url)
             return None
         return data
+    except req.Timeout as e:
+        log.warning("Image download TIMED OUT after %s (limit %ds) for %s: %s",
+                     _format_elapsed(started), IMAGE_PER_REQUEST_TIMEOUT_SECS, url, e)
+        return None
     except req.RequestException as e:
-        log.warning("Image download failed for %s: %s", url, e)
+        log.warning("Image download failed after %s for %s: %s: %s",
+                     _format_elapsed(started), url, type(e).__name__, e)
         return None
 
 def _shrink_image(data: bytes) -> bytes:
@@ -969,17 +986,42 @@ def _shrink_image(data: bytes) -> bytes:
         log.warning("Image resize failed, using original bytes: %s", e)
         return data
 
-async def _download_images_batch(urls: list[str]) -> list[bytes | None]:
-    """Download every URL in parallel, returning results in the same order
-    as `urls` (None for any that failed or didn't finish in time).
+IMAGE_STAGGER_SECS  = 0.25  # delay between launching each parallel download
+RETRY_BUDGET_SECS   = 15    # extra wall-clock budget for the serial second-chance pass
 
-    Uses asyncio.wait(..., timeout=...) instead of wait_for(gather(...)):
-    wait_for cancels and discards EVERYTHING — including downloads that
-    already finished — the moment the deadline passes. That meant one slow
-    image could blank out several good photos that were sitting there done.
-    Here, any task still running once the deadline hits is cancelled and
-    counted as a miss, but everything that already completed is kept."""
-    tasks = [asyncio.ensure_future(asyncio.to_thread(_download_image, u)) for u in urls]
+async def _delayed_download(url: str, index: int) -> bytes | None:
+    """Same as _download_image, but each index in a batch starts slightly
+    later than the last (index * IMAGE_STAGGER_SECS). Firing every request
+    in a batch at the exact same instant, from the same source IP, is
+    exactly the shape of traffic that CDN/WAF burst- or rate-limiting
+    heuristics look for -- and a shared cloud host's egress IP (Railway) is
+    far more likely to already be under that kind of scrutiny than a home
+    connection's IP, where the same simultaneous-burst pattern went
+    unnoticed. Spreading the requests out a little costs at most ~2s for a
+    10-image batch, well inside the batch deadline."""
+    if index:
+        await asyncio.sleep(index * IMAGE_STAGGER_SECS)
+    return await asyncio.to_thread(_download_image, url)
+
+async def _download_images_batch(urls: list[str]) -> list[bytes | None]:
+    """Download every URL, returning results in the same order as `urls`
+    (None for any that failed or didn't finish in time).
+
+    Two passes:
+    1. Parallel (staggered) pass, capped at IMAGE_BATCH_DEADLINE_SECS.
+       Uses asyncio.wait(..., timeout=...) instead of wait_for(gather(...)):
+       wait_for cancels and discards EVERYTHING -- including downloads that
+       already finished -- the moment the deadline passes. That meant one
+       slow image could blank out several good photos that were sitting
+       there done. Here, any task still running once the deadline hits is
+       cancelled and counted as a miss, but everything that already
+       completed is kept.
+    2. Serial second-chance pass over whatever the first pass missed,
+       bounded by RETRY_BUDGET_SECS total (not per-image). A dropped
+       connection or a momentary rate-limit is often transient -- retrying
+       one at a time, well after the original burst, gives those images a
+       real chance to come through instead of just being written off."""
+    tasks = [asyncio.ensure_future(_delayed_download(u, i)) for i, u in enumerate(urls)]
     done, pending = await asyncio.wait(tasks, timeout=IMAGE_BATCH_DEADLINE_SECS, return_when=asyncio.ALL_COMPLETED)
 
     if pending:
@@ -999,6 +1041,23 @@ async def _download_images_batch(urls: list[str]) -> list[bytes | None]:
                 results.append(None)
         else:
             results.append(None)
+
+    missing = [i for i, r in enumerate(results) if r is None and urls[i]]
+    if missing:
+        log.info("First pass missed %d/%d image(s); retrying serially (budget %ds)…",
+                  len(missing), len(urls), RETRY_BUDGET_SECS)
+        retry_deadline = time.monotonic() + RETRY_BUDGET_SECS
+        for n, i in enumerate(missing):
+            if time.monotonic() >= retry_deadline:
+                log.warning("Serial retry budget exhausted; %d image(s) left unretried.", len(missing) - n)
+                break
+            retried = await asyncio.to_thread(_download_image, urls[i])
+            if retried:
+                log.info("Serial retry recovered image for %s", urls[i])
+                results[i] = retried
+            else:
+                log.warning("Serial retry still failed for %s", urls[i])
+
     return results
 
 # ── WATCH EVENTS ──────────────────────────────────────────────────────────────
@@ -1135,7 +1194,10 @@ async def _send_events_as_stickers(chat_id: int, context: ContextTypes.DEFAULT_T
 
     for event, image_bytes in zip(events, results):
         caption = _build_document_caption(event)
-        sticker_bytes = _to_sticker_webp(image_bytes) if image_bytes else None
+        # Off the event loop: WEBP conversion is CPU-bound (resize + encode),
+        # and blocking here for a whole event's worth of work, one event at a
+        # time, adds up across a 10-event digest on a CPU-constrained host.
+        sticker_bytes = await asyncio.to_thread(_to_sticker_webp, image_bytes) if image_bytes else None
         try:
             if sticker_bytes:
                 await context.bot.send_sticker(
