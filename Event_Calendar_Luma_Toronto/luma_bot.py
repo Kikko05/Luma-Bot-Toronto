@@ -1467,7 +1467,17 @@ async def morning_digest(context: ContextTypes.DEFAULT_TYPE):
     chat_id = int(TELEGRAM_CHAT_ID)
     today_label = datetime.now(timezone.utc).astimezone(TORONTO_TZ).strftime("%a %b %d")
     preferred = set(db.get("preferred_categories", []))
-    today_events = _filter_today(db)
+
+    # New Event Alerts and the Morning Digest both draw from the same
+    # event cache with no coordination between them. If poll_luma alerts
+    # on a category-matching event any time before the digest fires today,
+    # the digest would otherwise re-select "today's events" from scratch
+    # and send the exact same sticker a second time. Excluding anything
+    # already in alert_seen is what actually prevents that duplicate.
+    today_events_all = _filter_today(db)
+    alert_seen = set(db.get("alert_seen", []))
+    today_events = [e for e in today_events_all if event_id(e) not in alert_seen]
+    already_delivered = len(today_events_all) - len(today_events)
 
     if preferred:
         category_matches = [e for e in today_events if e.get("category") in preferred]
@@ -1490,7 +1500,18 @@ async def morning_digest(context: ContextTypes.DEFAULT_TYPE):
         header = f"☀️ *Good morning!* {{count}} event{{plural}} in Toronto today ({today_label}):"
 
     if not events:
-        await context.bot.send_message(chat_id=chat_id, text=empty_text, parse_mode="Markdown")
+        if already_delivered:
+            # There WAS something today — it just already went out as an
+            # alert. Say so instead of the generic "no events" message,
+            # which would otherwise be actively misleading.
+            plural = "s" if already_delivered != 1 else ""
+            text = (f"☀️ *Good morning!* Nothing new to send — today's "
+                     f"{already_delivered} event{plural} in Toronto ({today_label}) already "
+                     f"went out as alert{plural} earlier. Tap *👀 Watch Events* to revisit "
+                     f"{'them' if already_delivered != 1 else 'it'}.")
+        else:
+            text = empty_text
+        await context.bot.send_message(chat_id=chat_id, text=text, parse_mode="Markdown")
         return
 
     batch = events[:10]  # unchanged cap — kept as-is, not part of this change
@@ -1500,6 +1521,14 @@ async def morning_digest(context: ContextTypes.DEFAULT_TYPE):
         text=header.format(count=count, plural="s" if count != 1 else ""),
         parse_mode="Markdown",
     )
+
+    # Mark these as alerted too (same persist-before-send pattern as
+    # _send_new_event_alerts), so a later poll_luma pass never re-sends
+    # them as a "new event" alert either — the dedup has to work in both
+    # directions or the duplicate just reappears from the other side.
+    db.setdefault("alert_seen", []).extend(event_id(e) for e in batch)
+    save_seen(db)
+
     await _send_events_as_stickers(chat_id, context, batch)
 
 # ── MENU / COMMAND ROUTING ───────────────────────────────────────────────────
